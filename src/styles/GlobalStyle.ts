@@ -7,6 +7,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: Roboto, "Helvetica Neue", sans-serif
   }
-  `;
+`;
 
 export default GlobalStyle;
