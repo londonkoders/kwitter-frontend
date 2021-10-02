@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import WebFontLoader from 'webfontloader';
 
 import App from './App';
+import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './styles/GlobalStyle';
 import { KwitterThemeProvider } from './styles/theme';
-import reportWebVitals from './reportWebVitals';
 
 WebFontLoader.load({
   google: {

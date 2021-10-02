@@ -1,6 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 
