@@ -59,14 +59,14 @@ const KweetedAt = styled.span`
 `;
 
 export const Kweet = ({
-  kweet: { kwitter, content, kweetedAt, likes }
+  kweet: { author, content, kweetedAt, likes }
 }: KweetProps): ReactElement => (
   <Container>
-    <ProfilePhoto src={kwitter.profileImageUrl} />
+    <ProfilePhoto src={author.profileImageUrl} />
     <KweetContent>
       <KweetHeader>
-        <DisplayName>{kwitter.displayName}</DisplayName>
-        <KwitterHandle>{kwitter.kwitterHandle}</KwitterHandle>
+        <DisplayName>{author.displayName}</DisplayName>
+        <KwitterHandle>{author.kwitterHandle}</KwitterHandle>
         <span>·</span>
         <KweetedAt>{new Date(kweetedAt).toLocaleTimeString()}</KweetedAt>
       </KweetHeader>

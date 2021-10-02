@@ -1,7 +1,7 @@
-import { User } from './user';
+import { Profile } from './profile';
 
 export interface Kweet {
-  kwitter: User;
+  author: Profile;
   content: string;
   likes: number;
   kweetedAt: string;
