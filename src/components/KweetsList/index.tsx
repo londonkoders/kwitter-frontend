@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
+
 import { Kweet as KweetModel } from '../../model/kweet';
 import { Kweet } from '../Kweet';
 
