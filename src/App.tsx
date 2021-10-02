@@ -1,19 +1,41 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import User from './components/User/User';
-import Home from './components/Home/Home';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+
+const Container = styled.div`
+  display: flex;
+`;
+
+const StyledNav = styled.nav`
+  min-width: 200px;
+`;
 
 function App(): React.ReactElement {
   return (
     <Router>
-      <Switch>
-        <Route path="/user">
-          <User />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Container>
+        {/* TODO: Consolidate to component for navigation */}
+        <StyledNav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          </ul>
+        </StyledNav>
+        <Switch>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Container>
     </Router>
   );
 }
