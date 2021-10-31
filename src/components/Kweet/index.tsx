@@ -7,7 +7,7 @@ interface KweetProps {
   kweet: KweetModel;
 }
 
-const Container = styled.div`
+const Container = styled.article`
   padding: 1em;
   display: flex;
 
@@ -68,6 +68,7 @@ export const Kweet = ({
         <DisplayName>{author.displayName}</DisplayName>
         <KwitterHandle>{author.kwitterHandle}</KwitterHandle>
         <span>·</span>
+        {/* TODO: Render time only if it was posted today - otherweise render date only */}
         <KweetedAt>{new Date(kweetedAt).toLocaleTimeString()}</KweetedAt>
       </KweetHeader>
       <div>{content}</div>
