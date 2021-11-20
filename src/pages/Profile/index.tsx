@@ -2,19 +2,19 @@ import React, { ReactElement, useEffect, useState } from 'react';
 
 import { kwitterApiClient } from '../../api/client';
 import { KweetsList } from '../../components/KweetsList';
-import { GetUserResponse } from '../../model/kwitterApiModels';
+import { ListKweetsResponse } from '../../model/kwitterApiModels';
 
 const Profile = (): ReactElement | null => {
-  const [userProfile, setUserProfile] = useState<GetUserResponse | undefined>();
+  const [kweets, setKweets] = useState<ListKweetsResponse>([]);
 
   useEffect(() => {
     kwitterApiClient
       // TODO: Seems the soon-to-be API will return profile based on sequential ID for now
-      .get<GetUserResponse>('/users/1')
-      .then((response) => setUserProfile(response.data));
+      .get<ListKweetsResponse>('/kweets')
+      .then((response) => setKweets(response.data));
   }, []);
 
-  return userProfile ? <KweetsList kweets={userProfile.kweets} /> : null;
+  return <KweetsList kweets={kweets} />;
 };
 
 export default Profile;
