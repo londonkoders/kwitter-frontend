@@ -20,8 +20,8 @@ const Container = styled.div`
 export const KweetsList = ({ kweets }: KweetsListProps): ReactElement => {
   return (
     <Container>
-      {kweets.map((kweet) => (
-        <Kweet kweet={kweet} />
+      {kweets.map((kweet, index) => (
+        <Kweet kweet={kweet} key={`kweet_${index}`} />
       ))}
     </Container>
   );
