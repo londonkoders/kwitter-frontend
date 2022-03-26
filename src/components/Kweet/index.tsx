@@ -23,6 +23,8 @@ const Container = styled.article`
 const ProfilePhoto = styled.img`
   width: 50px;
   height: 50px;
+  min-height: 50px;
+  min-width: 50px;
   border-radius: 50%;
 `;
 
