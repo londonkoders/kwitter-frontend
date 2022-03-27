@@ -1,6 +1,7 @@
 {
   "kweets": [
     {
+      "id": 1,
       "author": {
         "displayName": "Alice",
         "kwitterHandle": "alice_the_cat_lover",
@@ -11,6 +12,7 @@
       "kweetedAt": "2021-10-02"
     },
     {
+      "id": 2,
       "author": {
         "displayName": "Bob",
         "kwitterHandle": "bob_the_builder",
@@ -21,6 +23,7 @@
       "kweetedAt": "2021-10-02"
     },
     {
+      "id": 3,
       "author": {
         "displayName": "ㅊ ㅐ연",
         "kwitterHandle": "chaeyun",
