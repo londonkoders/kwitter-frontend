@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-import { CreatePost } from '../../components/CreatePost/CreatePost';
+import { KweetForm } from '../../components/KweetForm/KweetForm';
 
 const Header = styled.div`
   font-size: 1.5em;
@@ -9,7 +9,7 @@ const Header = styled.div`
 const Home = (): ReactElement => (
   <div>
     <Header>Home</Header>
-    <CreatePost />
+    <KweetForm />
   </div>
 );
 

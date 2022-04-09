@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import { kwitterApiClient } from '../../api/client';
-import { KweetsList } from '../../components/KweetsList';
-import { Kweet as KweetModel } from '../../model/kweet';
 import { ListKweetsResponse } from '../../model/kwitterApiModels';
+import { KweetsList } from '../KweetsList';
 import {
   KwitterButton,
   KwitterPost,
@@ -11,9 +10,9 @@ import {
   ProfilePhoto
 } from './styled';
 
-export const CreatePost = (): React.ReactElement => {
+export const KweetForm = (): React.ReactElement => {
   const [post, setPost] = useState<string>('');
-  const [kweetList, setKweetList] = useState<KweetModel[]>([]);
+  const [kweetList, setKweetList] = useState<ListKweetsResponse>([]);
 
   const fetchData = async () => {
     const fetchKweets = await kwitterApiClient.get<ListKweetsResponse>(
@@ -26,23 +25,21 @@ export const CreatePost = (): React.ReactElement => {
     fetchData();
   }, []);
 
-  const kweet = {
-    content: post,
-    kweetedAt: new Date().toISOString(),
-    likes: 0,
-    author: {
-      displayName: 'User A',
-      kwitterHandle: '@user_A',
-      profileImageUrl: 'https://via.placeholder.com/50'
-    }
-  };
-
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const kweet = {
+      content: post,
+      kweetedAt: new Date().toISOString(),
+      likes: 0,
+      author: {
+        displayName: 'User A',
+        kwitterHandle: '@user_A',
+        profileImageUrl: 'https://via.placeholder.com/50'
+      }
+    };
+    kwitterApiClient.post('/kweets', kweet).then(() => fetchData());
     setKweetList((prev) => [kweet, ...prev]);
-    kwitterApiClient.post('/kweets', { kweet });
-    fetchData();
-  }
+  };
 
   return (
     <>
@@ -56,7 +53,7 @@ export const CreatePost = (): React.ReactElement => {
               setPost(event.target.value)
             }
           />
-          <KwitterButton type="submit">Tweet</KwitterButton>
+          <KwitterButton type="submit">Kweet</KwitterButton>
         </form>
       </KwitterPost>
       <KweetsList kweets={kweetList} />
