@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import {
   faBell as bellDefault,
   faBookmark as bookmarkDefault,
@@ -34,7 +35,18 @@ const StyledNav = styled.nav`
   min-width: 200px;
 `;
 
+const StyledButton = styled.button`
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.white};
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-left: 6rem;
+`;
+
 function App(): React.ReactElement {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <Router>
       <Container>
@@ -71,6 +83,7 @@ function App(): React.ReactElement {
             selectedIcon={<FontAwesomeIcon size="lg" icon={userSelected} />}
             text="Profile"
           />
+          <StyledButton onClick={() => loginWithRedirect()}>Login</StyledButton>
         </StyledNav>
         <Switch>
           <Route path="/profile">
