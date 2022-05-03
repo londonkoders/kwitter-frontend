@@ -47,7 +47,6 @@ function App(): React.ReactElement {
             selectedIcon={<FontAwesomeIcon size="lg" icon={homeSelected} />}
             text="Home"
           />
-
           <NavItem
             path="/notifications"
             defaultIcon={<FontAwesomeIcon size="lg" icon={bellDefault} />}
