@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 export const theme = {
   colors: {
     blue: '#1DA1F2',
+    lightBlue: '#E8F5FD',
     black: '#14171A',
     grey: {
       '400': '#657786',
