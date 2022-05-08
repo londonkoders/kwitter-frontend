@@ -7,7 +7,7 @@ interface NavItemProps {
   path: Paths;
   defaultIcon: React.ReactNode;
   selectedIcon: React.ReactNode;
-  text?: string;
+  text: string;
 }
 
 const Icon = styled.div`
@@ -21,7 +21,7 @@ const Icon = styled.div`
   border-radius: 50%;
 `;
 
-const StyledLink = styled(Link)<{ isCurrentPath: boolean }>`
+const StyledLink = styled(Link)<{ $selected: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +32,7 @@ const StyledLink = styled(Link)<{ isCurrentPath: boolean }>`
 
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
-  font-weight: ${(props) => (props.isCurrentPath ? 'bolder' : 'normal')};
+  font-weight: ${(props) => (props.$selected ? 'bolder' : 'normal')};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.grey[200]};
@@ -54,9 +54,9 @@ export function NavItem({
   const isCurrentPath = path === currentPath;
 
   return (
-    <StyledLink to={path} isCurrentPath={isCurrentPath}>
+    <StyledLink to={path} $selected={isCurrentPath}>
       <Icon>{isCurrentPath ? selectedIcon : defaultIcon}</Icon>
-      {text && <Text>{text}</Text>}
+      <Text>{text}</Text>
     </StyledLink>
   );
 }
