@@ -21,14 +21,14 @@ const providerConfig = {
 };
 
 ReactDOM.render(
-  <Auth0Provider {...providerConfig}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <Auth0Provider {...providerConfig}>
       <GlobalStyle />
       <KwitterThemeProvider>
         <App />
       </KwitterThemeProvider>
-    </React.StrictMode>
-  </Auth0Provider>,
+    </Auth0Provider>
+  </React.StrictMode>,
 
   document.getElementById('root')
 );

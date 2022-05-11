@@ -35,13 +35,16 @@ const StyledNav = styled.nav`
   min-width: 200px;
 `;
 
+const ButtonContainer = styled.div`
+  margin-left: 100px;
+`;
+
 const StyledButton = styled.button`
   background-color: ${({ theme }) => theme.colors.blue};
   color: ${({ theme }) => theme.colors.white};
   border: none;
   border-radius: 0.5rem;
   text-align: center;
-  margin-left: 6rem;
 `;
 
 function App(): React.ReactElement {
@@ -83,7 +86,9 @@ function App(): React.ReactElement {
             selectedIcon={<FontAwesomeIcon size="lg" icon={userSelected} />}
             text="Profile"
           />
-          <StyledButton onClick={() => loginWithRedirect()}>Login</StyledButton>
+          <ButtonContainer>
+            <StyledButton onClick={loginWithRedirect}>Login</StyledButton>
+          </ButtonContainer>
         </StyledNav>
         <Switch>
           <Route path="/profile">
