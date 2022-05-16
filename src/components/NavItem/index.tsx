@@ -10,7 +10,7 @@ interface NavItemProps {
   text: string;
 }
 
-const Icon = styled.div`
+const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +55,7 @@ export function NavItem({
 
   return (
     <StyledLink to={path} $selected={isCurrentPath}>
-      <Icon>{isCurrentPath ? selectedIcon : defaultIcon}</Icon>
+      <IconWrapper>{isCurrentPath ? selectedIcon : defaultIcon}</IconWrapper>
       <Text>{text}</Text>
     </StyledLink>
   );
