@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import KwitterFavIcon from '../..//assets/kwitter_logo_favicon.png';
+import KwitterFavIcon from '../../assets/kwitter_logo_favicon.png';
 
 const Logo = styled.img`
   height: 35px;
