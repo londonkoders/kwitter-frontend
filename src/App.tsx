@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import {
   faBell as bellDefault,
   faBookmark as bookmarkDefault,
@@ -19,6 +18,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { HomeButton } from './components/HomeButton';
+import { LoginButton } from './components/LoginButton';
 import { NavItem } from './components/NavItem';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -35,21 +35,7 @@ const StyledNav = styled.nav`
   min-width: 200px;
 `;
 
-const ButtonContainer = styled.div`
-  margin-left: 100px;
-`;
-
-const StyledButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.blue};
-  color: ${({ theme }) => theme.colors.white};
-  border: none;
-  border-radius: 0.5rem;
-  text-align: center;
-`;
-
 function App(): React.ReactElement {
-  const { loginWithRedirect } = useAuth0();
-
   return (
     <Router>
       <Container>
@@ -86,9 +72,7 @@ function App(): React.ReactElement {
             selectedIcon={<FontAwesomeIcon size="lg" icon={userSelected} />}
             text="Profile"
           />
-          <ButtonContainer>
-            <StyledButton onClick={loginWithRedirect}>Login</StyledButton>
-          </ButtonContainer>
+          <LoginButton />
         </StyledNav>
         <Switch>
           <Route path="/profile">
