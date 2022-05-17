@@ -18,6 +18,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { HomeButton } from './components/HomeButton';
+import { LoginButton } from './components/LoginButton';
 import { NavItem } from './components/NavItem';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -71,6 +72,7 @@ function App(): React.ReactElement {
             selectedIcon={<FontAwesomeIcon size="lg" icon={userSelected} />}
             text="Profile"
           />
+          <LoginButton />
         </StyledNav>
         <Switch>
           <Route path="/profile">
